@@ -21,6 +21,8 @@ describe Api::V3::NoticesController, type: :controller do
   it 'returns created notice id in json format' do
     post :create, legit_body, legit_params
     notice = Notice.last
+
+    expect(notice.request["cgi-data"].keys).to eq(["navigator_vendor", "HTTP_ACCEPT", "HTTP_ACCEPT_ENCODING", "HTTP_ACCEPT_LANGUAGE", "HTTP_CACHE_CONTROL", "HTTP_CONNECTION", "HTTP_COOKIE", "HTTP_HOST", "HTTP_IF_NONE_MATCH", "HTTP_UPGRADE_INSECURE_REQUESTS", "HTTP_USER_AGENT", "HTTP_VERSION", "HTTP_X_AMZ_SERVER_SIDE_ENCRYPTIO", "ORIGINAL_FULLPATH", "ORIGINAL_SCRIPT_NAME", "PATH_INFO", "QUERY_STRING", "REMOTE_ADDR", "REQUEST_METHOD", "REQUEST_PATH", "REQUEST_URI", "SERVER_NAME", "SERVER_PORT", "SERVER_PROTOCOL", "SERVER_SOFTWARE"])
     expect(JSON.parse(response.body)).to eq(
       'id'  => notice.id.to_s,
       'url' => notice.problem.url
