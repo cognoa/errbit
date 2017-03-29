@@ -13,7 +13,7 @@ class Api::V3::NoticesController < ApplicationController
     return render(status: 200, text: '') if request.method == 'OPTIONS'
 
     report = AirbrakeApi::V3::NoticeParser.new(
-      params.merge(request_env: request.env).merge(JSON.parse(request.raw_post) || {})).report
+      params.merge(JSON.parse(request.raw_post) || {})).report
 
     return render text: UNKNOWN_API_KEY, status: 422 unless report.valid?
     return render text: VERSION_TOO_OLD, status: 422 unless report.should_keep?
