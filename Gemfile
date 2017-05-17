@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-RAILS_VERSION = '~> 4.2.5.2'
+RAILS_VERSION = '~> 4.2.8'
 
 ruby '2.3.3'
 
@@ -80,8 +80,8 @@ group :development do
 end
 
 group :test do
-  gem 'rspec', '~> 3.3'
-  gem 'rspec-rails', '~> 3.0', require: false
+  gem 'rspec', '~> 3.5'
+  gem 'rspec-rails', '~> 3.5', require: false
   gem 'rspec-activemodel-mocks'
   gem 'rspec-its'
   gem 'mongoid-rspec', '~> 3.0.0', require: false
