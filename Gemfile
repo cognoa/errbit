@@ -105,5 +105,8 @@ gem 'underscore-rails'
 
 gem 'sucker_punch'
 
+# monitoring
+gem 'newrelic_rpm'
+
 ENV['USER_GEMFILE'] ||= './UserGemfile'
 eval_gemfile ENV['USER_GEMFILE'] if File.exist?(ENV['USER_GEMFILE'])
