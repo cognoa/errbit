@@ -71,6 +71,7 @@ group :development, :test do
   gem "capistrano-bundler"             # Bundler support for Capistrano 3.x
   gem "capistrano-rails"               # Official Ruby on Rails specific tasks for Capistrano
   gem "capistrano3-puma"               # Puma tasks for Capistrano
+  gem "capistrano-nginx"               # Nginx tasks for Capistrano
 end
 
 group :development do

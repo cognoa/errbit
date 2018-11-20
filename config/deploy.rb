@@ -35,7 +35,7 @@ set :linked_dirs, fetch(:linked_dirs, []) + %w(
 set :rbenv_type, :user
 set :rbenv_path, "/home/ubuntu/.rbenv"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-set :rbenv_ruby, "2.3.3"
+set :rbenv_ruby, "2.5.3"
 set :rbenv_roles, :all
 
 namespace :errbit do
