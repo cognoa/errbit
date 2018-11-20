@@ -64,6 +64,13 @@ group :development, :test do
   gem 'pry-byebug', platforms: [:mri]
   gem 'quiet_assets'
   gem 'rubocop', require: false
+
+  # Deployment
+  gem "capistrano"                     # Remote multi-server automation tool
+  gem "capistrano-rbenv"               # Idiomatic rbenv support for Capistrano 3.x
+  gem "capistrano-bundler"             # Bundler support for Capistrano 3.x
+  gem "capistrano-rails"               # Official Ruby on Rails specific tasks for Capistrano
+  gem "capistrano3-puma"               # Puma tasks for Capistrano
 end
 
 group :development do
