@@ -34,7 +34,7 @@ set :linked_dirs, fetch(:linked_dirs, []) + %w(
 # check out capistrano-rbenv documentation
 set :rbenv_type, :user
 set :rbenv_path, "/home/ubuntu/.rbenv"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
 set :rbenv_ruby, "2.5.3"
 set :rbenv_roles, :all
 
