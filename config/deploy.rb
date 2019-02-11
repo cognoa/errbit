@@ -10,7 +10,11 @@
 # lock "3.4.0"
 
 set :application, "errbit"
+
+set :rack_env, "production"
 set :rails_env, "production"
+set :puma_env, "production"
+
 set :repo_url, "https://github.com/cognoa/errbit"
 set :branch, "deploy"
 set :deploy_to, "/home/ubuntu/errbit"
