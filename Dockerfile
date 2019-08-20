@@ -17,7 +17,6 @@ RUN echo "gem: --no-document" >> /etc/gemrc \
     nodejs \
     tzdata
 
-
 COPY ["Gemfile", "Gemfile.lock", "/app/"]
 
 RUN apk add --no-cache --virtual build-dependencies \
@@ -30,6 +29,11 @@ RUN apk add --no-cache --virtual build-dependencies \
   && apk del build-dependencies
 
 COPY . /app
+
+# GITHUB_ORG_ID is an optional environment variable you can set to your own github
+# organization id. If set, only users of the specified GitHub organization can log in to
+# Errbit through GitHub. Errbit will provision accounts for new users.
+ENV GITHUB_ORG_ID 7410234
 
 RUN RAILS_ENV=production bundle exec rake assets:precompile \
   && rm -rf /app/tmp/* \
