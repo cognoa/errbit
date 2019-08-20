@@ -67,6 +67,7 @@ $(function() {
 
     // If clicking into 'backtrace' tab, hide external backtrace
     if (tab.attr('rel') == "backtrace") { hide_external_backtrace(); }
+    if (tab.attr('rel') == "metadata" || tab.attr('rel') == "params") { formatJsons(); }
 
     $('.panel').hide();
     panel.show();
@@ -129,12 +130,12 @@ $(function() {
 
   // Format JSON params and Metadata when available
   function formatJsons() {
-    for(var tab of ["params", "metadata"]) {
-      if($("#json_" + tab).length > 0) {
-        var formatter = new JSONFormatter(JSON.parse($("#json_" + tab).val()), Infinity, { theme: "dark", hoverPreviewEnabled: true });
-        document.querySelector("pre.json#" + tab).appendChild(formatter.render());
+    $("#json_metadata, #json_params").each(function(){
+      if($(this).prev(".json").is(':empty')) {
+        var formatter = new JSONFormatter(JSON.parse($(this).val()), Infinity, { theme: "dark", hoverPreviewEnabled: true });
+        $(this).prev(".json").html(formatter.render());
       }
-    }
+    });
   }
 
   init();
